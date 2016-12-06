@@ -57,9 +57,9 @@ void ExecutionFramework::sendMessage(bytes const& _data, bool _isCreation, u256 
 	if (m_showMessages)
 	{
 		if (_isCreation)
-			cout << "CREATE " << toHex(m_sender) << ": " << toHex(_data) << endl;
+			cout << "CREATE " << m_sender.hex() << ": " << toHex(_data) << endl;
 		else
-			cout << "CALL   " << toHex(m_sender) << " -> " << toHex(m_contractAddress) << ": " << toHex(_data) << endl;
+			cout << "CALL   " << m_sender.hex() << " -> " << m_contractAddress.hex() << ": " << toHex(_data) << endl;
 	}
 	RPCSession::TransactionData d;
 	d.data = "0x" + toHex(_data);
